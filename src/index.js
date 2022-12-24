@@ -26,8 +26,6 @@ async function onSubmit(event) {
 
   createGallery();
   lightbox.refresh();
-
-  gallery.query.value = '';
 }
 
 function renderGallery(markup) {
@@ -68,7 +66,6 @@ function onloadMoreBtnClick() {
     .then(data => {
       renderGallery(data.hits);
       lightbox.refresh();
-      console.log(gallery.page);
       if (gallery.page >= Math.ceil(data.totalHits / 40)) {
         refs.loadMoreBtn.classList.add('is-hidden');
         Notify.info(
